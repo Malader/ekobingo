@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ЭКОБИНГО Greenway Global</title>
+<meta name="description" content="Экочеллендж Greenway Global: отметьте выполненные эко-привычки, закройте линии и сохраните результат картинкой.">
+<meta name="theme-color" content="#1E5B3A" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101610" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Greenway Global">
+<meta property="og:title" content="ЭКОБИНГО Greenway Global">
+<meta property="og:description" content="Экочеллендж Greenway Global: отметьте выполненные эко-привычки, закройте линии и сохраните результат картинкой.">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="index, follow">
+<style>html{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@600;700;800&display=swap">
+<style>
+:root{
+  --paper:#EDF1E4;
+  --slat:rgba(30,91,58,.055);
+  --card:#FFFFFF;
+  --card-off:#E2E8D8;
+  --ink:#16241B;
+  --ink-dim:#6C7A66;
+  --forest:#1E5B3A;
+  --sprout:#2F9E58;
+  --on-sprout:#FFFFFF;
+  --sun:#B0730A;
+  --sun-soft:#F7E3B9;
+  --edge:rgba(22,36,27,.11);
+  --sticker-bg:#1E5B3A;
+  --sticker-fg:#F1F6EA;
+  --btn-bg:#1E5B3A;
+  --btn-fg:#F1F6EA;
+  --field:#FFFFFF;
+  --lift:0 1px 1px rgba(22,36,27,.05),0 10px 22px rgba(22,36,27,.09);
+  --veil:rgba(16,26,19,.62);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#101610;
+    --slat:rgba(143,217,168,.05);
+    --card:#1E2B22;
+    --card-off:#161E18;
+    --ink:#E6EEE4;
+    --ink-dim:#7C8B7B;
+    --forest:#8FD9A8;
+    --sprout:#43C173;
+    --on-sprout:#06130C;
+    --sun:#F0B54A;
+    --sun-soft:#3A2E15;
+    --edge:rgba(230,238,230,.13);
+    --sticker-bg:#8FD9A8;
+    --sticker-fg:#0C1A11;
+    --btn-bg:#43C173;
+    --btn-fg:#06130B;
+    --field:#1A2419;
+    --lift:0 1px 1px rgba(0,0,0,.35),0 10px 22px rgba(0,0,0,.4);
+    --veil:rgba(4,9,6,.74);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#101610;
+  --slat:rgba(143,217,168,.05);
+  --card:#1E2B22;
+  --card-off:#161E18;
+  --ink:#E6EEE4;
+  --ink-dim:#7C8B7B;
+  --forest:#8FD9A8;
+  --sprout:#43C173;
+  --on-sprout:#06130C;
+  --sun:#F0B54A;
+  --sun-soft:#3A2E15;
+  --edge:rgba(230,238,230,.13);
+  --sticker-bg:#8FD9A8;
+  --sticker-fg:#0C1A11;
+  --btn-bg:#43C173;
+  --btn-fg:#06130B;
+  --field:#1A2419;
+  --lift:0 1px 1px rgba(0,0,0,.35),0 10px 22px rgba(0,0,0,.4);
+  --veil:rgba(4,9,6,.74);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  background-image:repeating-linear-gradient(90deg,var(--slat) 0 30px,transparent 30px 64px);
+  color:var(--ink);
+  font-family:"Golos Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:470px;margin:0 auto;padding:26px 18px 0;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+
+.eyebrow{
+  font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-dim);margin-bottom:12px;
+}
+.sticker{
+  display:inline-flex;flex-direction:column;gap:2px;align-items:flex-start;
+  background:var(--sticker-bg);color:var(--sticker-fg);
+  padding:11px 18px 13px;border-radius:4px;transform:rotate(-2.2deg);
+  box-shadow:var(--lift);
+}
+.sticker b{font-family:Unbounded,"Golos Text",sans-serif;font-weight:800;font-size:26px;letter-spacing:.01em;line-height:1}
+.sticker span{font-size:13px;font-weight:500;opacity:.82;letter-spacing:.04em}
+
+.meta{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin:24px 0 10px}
+.namewrap{display:flex;flex-direction:column;gap:5px;flex:1;min-width:0}
+.namelabel{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim)}
+#name{
+  font:inherit;font-size:16px;font-weight:600;color:var(--ink);
+  background:var(--field);border:1px solid var(--edge);border-radius:9px;
+  padding:9px 11px;width:100%;
+}
+#name::placeholder{color:var(--ink-dim);font-weight:400}
+#name:focus-visible{outline:2px solid var(--sprout);outline-offset:1px;border-color:transparent}
+
+.score{text-align:right;flex:none}
+.score-num{font-family:Unbounded,sans-serif;font-weight:800;font-size:30px;line-height:1;color:var(--forest);font-variant-numeric:tabular-nums}
+.score-num i{font-style:normal;font-size:17px;opacity:.5}
+.score-cap{font-size:11.5px;font-weight:500;color:var(--ink-dim);margin-top:5px}
+
+.bar{height:7px;border-radius:99px;background:var(--card-off);overflow:hidden;box-shadow:inset 0 0 0 1px var(--edge)}
+.bar i{display:block;height:100%;width:0;background:var(--sprout);border-radius:99px;transition:width .35s cubic-bezier(.4,0,.2,1)}
+
+.flag{
+  margin-top:12px;display:flex;align-items:center;gap:8px;
+  background:var(--sun-soft);color:var(--sun);
+  border-radius:8px;padding:9px 12px;font-size:13px;font-weight:600;
+}
+.flag b{font-family:Unbounded,sans-serif;font-weight:800;letter-spacing:.04em}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:16px 0 0}
+.cell{
+  position:relative;aspect-ratio:1/1;border:0;border-radius:16px;
+  background:var(--card-off);color:var(--ink-dim);
+  font:inherit;font-size:clamp(9.6px,2.72vw,11.8px);font-weight:500;line-height:1.28;
+  text-align:center;padding:11px 7px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .18s,color .18s,box-shadow .18s,transform .18s;
+  -webkit-tap-highlight-color:transparent;
+}
+.cell .txt{display:block;width:100%}
+.cell:hover{transform:translateY(-1px)}
+.cell:focus-visible{outline:2px solid var(--sprout);outline-offset:2px}
+.cell.done{background:var(--card);color:var(--ink);font-weight:600;box-shadow:var(--lift)}
+.cell.line{box-shadow:var(--lift),inset 0 0 0 2px var(--sprout)}
+.cell .tick{
+  position:absolute;top:-5px;right:-5px;width:26px;height:26px;border-radius:50%;
+  background:var(--sprout);color:var(--on-sprout);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 7px rgba(10,24,15,.3);
+  transform:scale(0);transform-origin:70% 30%;
+  transition:transform .2s cubic-bezier(.34,1.56,.64,1);
+}
+.cell.done .tick{transform:scale(1)}
+.cell .tick svg{width:14px;height:14px;display:block}
+
+.hint{font-size:12px;line-height:1.5;color:var(--ink-dim);margin:16px 2px 4px}
+
+.footer{
+  position:sticky;bottom:0;margin-top:auto;padding:18px 0 16px;
+  background:linear-gradient(to top,var(--paper) 62%,transparent);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+}
+.brag{
+  width:100%;border:0;border-radius:14px;padding:16px;
+  background:var(--btn-bg);color:var(--btn-fg);
+  font:inherit;font-size:16px;font-weight:600;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  box-shadow:var(--lift);transition:transform .15s,filter .15s;
+}
+.brag:hover{filter:brightness(1.06)}
+.brag:active{transform:scale(.985)}
+.brag:focus-visible{outline:2px solid var(--sprout);outline-offset:3px}
+.brag svg{width:17px;height:17px}
+.reset{
+  border:0;background:none;color:var(--ink-dim);font:inherit;font-size:12.5px;
+  cursor:pointer;padding:2px 8px;border-radius:6px;text-decoration:underline;
+  text-underline-offset:3px;text-decoration-thickness:1px;
+}
+.reset:hover{color:var(--ink)}
+.reset:focus-visible{outline:2px solid var(--sprout);outline-offset:2px}
+
+body.locked{overflow:hidden}
+.modal{position:fixed;inset:0;background:var(--veil);display:flex;align-items:center;justify-content:center;padding:16px;z-index:20;overscroll-behavior:contain}
+.sheet{
+  background:var(--paper);border-radius:20px;padding:16px;max-width:400px;width:100%;
+  max-height:92vh;max-height:92dvh;overflow:auto;overscroll-behavior:contain;
+  box-shadow:0 24px 60px rgba(0,0,0,.4);
+  display:flex;flex-direction:column;gap:12px;
+}
+.sheet h2{font-family:Unbounded,sans-serif;font-weight:700;font-size:16px;margin:2px 0 0;color:var(--ink)}
+.shot{width:100%;max-height:54vh;max-height:54dvh;object-fit:contain;border-radius:12px;display:block}
+.sheet p{margin:0;font-size:12.5px;line-height:1.5;color:var(--ink-dim)}
+.acts{display:flex;gap:8px;flex-wrap:wrap}
+.acts button,.acts a{
+  flex:1 1 130px;min-height:46px;border:1px solid var(--edge);border-radius:11px;padding:12px;
+  font:inherit;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;
+  background:var(--field);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;gap:7px;
+}
+.acts .primary{background:var(--btn-bg);color:var(--btn-fg);border-color:transparent}
+.acts button:focus-visible,.acts a:focus-visible{outline:2px solid var(--sprout);outline-offset:2px}
+.acts svg{width:16px;height:16px}
+.sheet .close{
+  align-self:center;border:0;background:none;color:var(--ink-dim);font:inherit;font-size:13px;
+  cursor:pointer;padding:8px 14px;border-radius:8px;text-decoration:underline;
+  text-underline-offset:3px;text-decoration-thickness:1px;
+}
+.sheet .close:hover{color:var(--ink)}
+.sheet .close:focus-visible{outline:2px solid var(--sprout);outline-offset:2px}
+.tip{
+  display:flex;gap:9px;align-items:flex-start;
+  background:var(--sun-soft);color:var(--sun);
+  border-radius:11px;padding:11px 12px;font-size:13px;font-weight:600;line-height:1.4;
+}
+.tip svg{width:17px;height:17px;flex:none;margin-top:1px}
+.spinner{font-size:13px;color:var(--ink-dim);padding:40px 0;text-align:center}
+.failed{font-size:13px;line-height:1.5;color:var(--sun);background:var(--sun-soft);border-radius:11px;padding:12px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <div class="eyebrow">Экочеллендж</div>
+  <div class="sticker"><b>ЭКОБИНГО</b><span>Greenway Global</span></div>
+
+  <div class="meta">
+    <label class="namewrap">
+      <span class="namelabel">Карточка</span>
+      <input id="name" type="text" maxlength="28" placeholder="Ваше имя" autocomplete="name">
+    </label>
+    <div class="score">
+      <div class="score-num"><span id="done">0</span><i>/12</i></div>
+      <div class="score-cap" id="linecap">линий: 0 из 7</div>
+    </div>
+  </div>
+
+  <div class="bar"><i id="barfill"></i></div>
+
+  <div class="flag" id="flag" hidden><b>БИНГО</b><span id="flagtext">линия закрыта</span></div>
+
+  <div class="grid" id="grid"></div>
+
+  <p class="hint">Отмечайте то, что уже сделали. Ряд из 3 или столбец из 4 отмеченных карточек, это закрытая линия. Прогресс хранится в вашем браузере, у каждого он свой.</p>
+
+  <div class="footer">
+    <button class="brag" id="brag">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+      Похвастаться
+    </button>
+    <button class="reset" id="reset" type="button">Сбросить карточку</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var ITEMS = [
+    {s:"Своя кружка в офисе вместо одноразовых стаканов", f:"Принести кружку из дома в офис и не пользоваться одноразовыми стаканами"},
+    {s:"Шоппер вместо одноразовых пакетов",               f:"Положить в сумку шоппер и отказаться от одноразовых пакетов"},
+    {s:"Неделя без бумажных чеков",                       f:"Не брать чек в магазине всю неделю"},
+    {s:"Листовой чай вместо пакетиков всю неделю",        f:"Заменить пакетированный чай на листовой"},
+    {s:"Концентраты вместо бытовой химии",                f:"Заменить обычную бытовую химию на концентраты"},
+    {s:"Сдать мусор в контейнеры на 11 этаже",            f:"Сдать мусор в контейнеры для раздельного сбора на 11 этаже"},
+    {s:"Принести старые вещи на Гаражку 22-23 сентября",  f:"Прийти на Гаражку 22-23 сентября и принести свою старую одежду"},
+    {s:"Принести обед с собой в многоразовом ланч-боксе", f:"Принести обед с собой в многоразовом ланч-боксе"},
+    {s:"Неделю без доставки на дом",                      f:"Неделю не заказывать доставку на дом"},
+    {s:"Сдать ненужные вещи в Густобокс",                 f:"Сдать ненужные вещи в Густобокс"},
+    {s:"Сдать батарейки в кабинете АХО",                  f:"Сдать батарейки в кабинете АХО"},
+    {s:"Вынимать зарядку из розетки, если ничего не заряжаешь", f:"Всегда вытаскивать блок из розетки после зарядки телефона"}
+  ];
+  var LINES = [
+    [0,1,2],[3,4,5],[6,7,8],[9,10,11],
+    [0,3,6,9],[1,4,7,10],[2,5,8,11]
+  ];
+  var KEY = "ekobingo.greenway.v1";
+
+  var state = {name:"", on:new Array(12).fill(false)};
+  try{
+    var raw = localStorage.getItem(KEY);
+    if(raw){
+      var p = JSON.parse(raw);
+      if(p && Array.isArray(p.on) && p.on.length === 12){ state.on = p.on.map(Boolean); }
+      if(p && typeof p.name === "string"){ state.name = p.name.slice(0,28); }
+    }
+  }catch(e){}
+
+  function save(){
+    try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+  }
+
+  var grid = document.getElementById("grid");
+  var doneEl = document.getElementById("done");
+  var lineCap = document.getElementById("linecap");
+  var barFill = document.getElementById("barfill");
+  var flag = document.getElementById("flag");
+  var flagText = document.getElementById("flagtext");
+  var nameEl = document.getElementById("name");
+  var cells = [];
+
+  var TICK = '<span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4.5 4.5L19 7"/></svg></span>';
+
+  ITEMS.forEach(function(item, i){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "cell";
+    b.title = item.f;
+    b.setAttribute("aria-pressed","false");
+    b.innerHTML = '<span class="txt"></span>' + TICK;
+    b.querySelector(".txt").textContent = item.s;
+    b.addEventListener("click", function(){
+      state.on[i] = !state.on[i];
+      save();
+      render();
+    });
+    grid.appendChild(b);
+    cells.push(b);
+  });
+
+  function closedLines(){
+    var out = [];
+    for(var i=0;i<LINES.length;i++){
+      var all = true;
+      for(var j=0;j<LINES[i].length;j++){ if(!state.on[LINES[i][j]]){ all = false; break; } }
+      if(all) out.push(LINES[i]);
+    }
+    return out;
+  }
+
+  function plural(n, one, few, many){
+    var n10 = n % 10, n100 = n % 100;
+    if(n10 === 1 && n100 !== 11) return one;
+    if(n10 >= 2 && n10 <= 4 && (n100 < 12 || n100 > 14)) return few;
+    return many;
+  }
+
+  function render(){
+    var count = 0, i;
+    for(i=0;i<12;i++){ if(state.on[i]) count++; }
+
+    var lines = closedLines();
+    var inLine = new Array(12).fill(false);
+    lines.forEach(function(L){ L.forEach(function(k){ inLine[k] = true; }); });
+
+    for(i=0;i<12;i++){
+      cells[i].classList.toggle("done", !!state.on[i]);
+      cells[i].classList.toggle("line", inLine[i]);
+      cells[i].setAttribute("aria-pressed", state.on[i] ? "true" : "false");
+    }
+
+    doneEl.textContent = count;
+    lineCap.textContent = "линий: " + lines.length + " из 7";
+    barFill.style.width = (count / 12 * 100) + "%";
+
+    if(count === 12){
+      flag.hidden = false;
+      flagText.textContent = "полный сбор, все 12 закрыты";
+    }else if(lines.length > 0){
+      flag.hidden = false;
+      flagText.textContent = lines.length + " " + plural(lines.length,"линия закрыта","линии закрыты","линий закрыто");
+    }else{
+      flag.hidden = true;
+    }
+  }
+
+  nameEl.value = state.name;
+  nameEl.addEventListener("input", function(){
+    state.name = nameEl.value.slice(0,28);
+    save();
+  });
+
+  document.getElementById("reset").addEventListener("click", function(){
+    state.on = new Array(12).fill(false);
+    save();
+    render();
+  });
+
+  render();
+
+  /* ---------- Картинка для «Похвастаться» ---------- */
+
+  var PAL = {
+    paper:"#EDF1E4", slat:"rgba(30,91,58,0.055)", card:"#FFFFFF", cardOff:"#E2E8D8",
+    ink:"#16241B", dim:"#6C7A66", forest:"#1E5B3A", sprout:"#2F9E58",
+    edge:"rgba(22,36,27,0.11)", sticker:"#1E5B3A", stickerFg:"#F1F6EA"
+  };
+
+  function rr(ctx,x,y,w,h,r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y);
+    ctx.arcTo(x+w,y,x+w,y+h,r);
+    ctx.arcTo(x+w,y+h,x,y+h,r);
+    ctx.arcTo(x,y+h,x,y,r);
+    ctx.arcTo(x,y,x+w,y,r);
+    ctx.closePath();
+  }
+
+  function wrap(ctx,text,maxW){
+    var words = text.split(" "), lines = [], line = "";
+    for(var i=0;i<words.length;i++){
+      var probe = line ? line + " " + words[i] : words[i];
+      if(ctx.measureText(probe).width > maxW && line){
+        lines.push(line);
+        line = words[i];
+      }else{
+        line = probe;
+      }
+    }
+    if(line) lines.push(line);
+    return lines;
+  }
+
+  function spaced(ctx,text,x,y,tracking){
+    var cx = x;
+    for(var i=0;i<text.length;i++){
+      ctx.fillText(text[i], cx, y);
+      cx += ctx.measureText(text[i]).width + tracking;
+    }
+  }
+
+  function draw(){
+    var W = 1080, H = 1350, PAD = 64;
+    var cv = document.createElement("canvas");
+    cv.width = W; cv.height = H;
+    var ctx = cv.getContext("2d");
+
+    ctx.fillStyle = PAL.paper;
+    ctx.fillRect(0,0,W,H);
+    ctx.fillStyle = PAL.slat;
+    for(var x=0;x<W;x+=64){ ctx.fillRect(x,0,30,H); }
+
+    var count = 0;
+    for(var i=0;i<12;i++){ if(state.on[i]) count++; }
+    var lines = closedLines();
+    var inLine = new Array(12).fill(false);
+    lines.forEach(function(L){ L.forEach(function(k){ inLine[k] = true; }); });
+
+    ctx.textBaseline = "alphabetic";
+
+    /* Наклейка */
+    ctx.save();
+    ctx.translate(PAD, 72);
+    ctx.rotate(-2.2 * Math.PI / 180);
+    ctx.fillStyle = PAL.sticker;
+    rr(ctx,0,0,392,132,8);
+    ctx.fill();
+    ctx.fillStyle = PAL.stickerFg;
+    ctx.font = '800 46px Unbounded, sans-serif';
+    ctx.fillText("ЭКОБИНГО", 28, 66);
+    ctx.globalAlpha = .82;
+    ctx.font = '500 23px "Golos Text", sans-serif';
+    ctx.fillText("Greenway Global", 29, 102);
+    ctx.globalAlpha = 1;
+    ctx.restore();
+
+    /* Счёт справа */
+    ctx.textAlign = "right";
+    ctx.fillStyle = PAL.forest;
+    ctx.font = '800 62px Unbounded, sans-serif';
+    var big = String(count);
+    ctx.fillText(big, W - PAD - 62, 132);
+    ctx.font = '800 30px Unbounded, sans-serif';
+    ctx.globalAlpha = .5;
+    ctx.fillText("/12", W - PAD, 132);
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = PAL.dim;
+    ctx.font = '500 24px "Golos Text", sans-serif';
+    ctx.fillText("линий: " + lines.length + " из 7", W - PAD, 172);
+    ctx.textAlign = "left";
+
+    /* Участник */
+    var nm = (state.name || "").trim();
+    ctx.fillStyle = PAL.dim;
+    ctx.font = '500 26px "Golos Text", sans-serif';
+    if(nm){
+      var lbl = "Карточка: ";
+      ctx.fillText(lbl, PAD, 252);
+      var lw = ctx.measureText(lbl).width;
+      ctx.fillStyle = PAL.ink;
+      ctx.font = '600 28px "Golos Text", sans-serif';
+      ctx.fillText(nm, PAD + lw, 252);
+    }else{
+      ctx.fillText("Карточка участника", PAD, 252);
+    }
+    ctx.fillStyle = PAL.dim;
+    ctx.font = '600 18px "Golos Text", sans-serif';
+    var eb = "ЭКОЧЕЛЛЕНДЖ", ebw = 0, q;
+    for(q=0;q<eb.length;q++){ ebw += ctx.measureText(eb[q]).width + 3.2; }
+    spaced(ctx, eb, W - PAD - ebw + 3.2, 250, 3.2);
+
+    ctx.strokeStyle = PAL.edge;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(PAD, 280.5);
+    ctx.lineTo(W - PAD, 280.5);
+    ctx.stroke();
+
+    /* Сетка */
+    var GAP = 20, COLS = 3;
+    var cw = (W - PAD*2 - GAP*(COLS-1)) / COLS;
+    var ch = 222, top = 312;
+
+    for(i=0;i<12;i++){
+      var col = i % COLS, row = Math.floor(i / COLS);
+      var cx = PAD + col * (cw + GAP);
+      var cy = top + row * (ch + GAP);
+      var on = !!state.on[i];
+
+      if(on){
+        ctx.save();
+        ctx.shadowColor = "rgba(22,36,27,0.10)";
+        ctx.shadowBlur = 22;
+        ctx.shadowOffsetY = 8;
+        ctx.fillStyle = PAL.card;
+        rr(ctx,cx,cy,cw,ch,26);
+        ctx.fill();
+        ctx.restore();
+      }else{
+        ctx.fillStyle = PAL.cardOff;
+        rr(ctx,cx,cy,cw,ch,26);
+        ctx.fill();
+      }
+
+      if(inLine[i]){
+        ctx.strokeStyle = PAL.sprout;
+        ctx.lineWidth = 4;
+        rr(ctx,cx+2,cy+2,cw-4,ch-4,24);
+        ctx.stroke();
+      }
+
+      ctx.fillStyle = on ? PAL.ink : PAL.dim;
+      ctx.font = (on ? '600 ' : '500 ') + '24px "Golos Text", sans-serif';
+      ctx.textAlign = "center";
+      var ls = wrap(ctx, ITEMS[i].s, cw - 40);
+      var lh = 32;
+      var ty = cy + ch/2 - (ls.length - 1) * lh / 2 + 9;
+      for(var k=0;k<ls.length;k++){ ctx.fillText(ls[k], cx + cw/2, ty + k*lh); }
+      ctx.textAlign = "left";
+
+      if(on){
+        var bx = cx + cw - 26, by = cy + 26;
+        ctx.fillStyle = PAL.paper;
+        ctx.beginPath(); ctx.arc(bx,by,30,0,Math.PI*2); ctx.fill();
+        ctx.fillStyle = PAL.sprout;
+        ctx.beginPath(); ctx.arc(bx,by,25,0,Math.PI*2); ctx.fill();
+        ctx.strokeStyle = "#FFFFFF";
+        ctx.lineWidth = 5;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.beginPath();
+        ctx.moveTo(bx-10, by+1);
+        ctx.lineTo(bx-3, by+8);
+        ctx.lineTo(bx+10, by-8);
+        ctx.stroke();
+      }
+    }
+
+    /* Подвал */
+    var gridBottom = top + 4*ch + 3*GAP;
+    var by2 = gridBottom + 24;
+    ctx.fillStyle = PAL.cardOff;
+    rr(ctx, PAD, by2, W - PAD*2, 12, 6);
+    ctx.fill();
+    if(count > 0){
+      ctx.fillStyle = PAL.sprout;
+      rr(ctx, PAD, by2, Math.max(12,(W - PAD*2) * count / 12), 12, 6);
+      ctx.fill();
+    }
+    ctx.fillStyle = PAL.dim;
+    ctx.font = '500 23px "Golos Text", sans-serif';
+    ctx.fillText("закрыто " + count + " из 12", PAD, by2 + 46);
+    ctx.textAlign = "right";
+    ctx.fillText("greenway global", W - PAD, by2 + 46);
+    ctx.textAlign = "left";
+
+    return cv;
+  }
+
+  var fontsReady = null;
+  function ensureFonts(){
+    if(fontsReady) return fontsReady;
+    var need = [
+      '800 46px Unbounded', '800 62px Unbounded', '800 30px Unbounded',
+      '500 23px "Golos Text"', '600 30px "Golos Text"',
+      '600 26px "Golos Text"', '500 26px "Golos Text"',
+      '500 24px "Golos Text"', '600 18px "Golos Text"'
+    ];
+    var jobs = [];
+    if(document.fonts && document.fonts.load){
+      need.forEach(function(f){
+        try{ jobs.push(document.fonts.load(f, "ЭКОБИНГО Greenway 0123")); }catch(e){}
+      });
+      if(document.fonts.ready) jobs.push(document.fonts.ready);
+    }
+    var timeout = new Promise(function(res){ setTimeout(res, 4000); });
+    fontsReady = Promise.race([Promise.all(jobs).catch(function(){}), timeout]);
+    return fontsReady;
+  }
+
+  /* В артефакте claude.ai страница живёт в песочнице, где скачивание файлов
+     запрещено. В обычном html-файле работает честная ссылка download. */
+  var SANDBOXED = !!(window.claude && typeof window.claude.use === "function");
+  var TOUCH = false;
+  try{ TOUCH = window.matchMedia("(pointer: coarse)").matches; }catch(e){}
+
+  var modal = null, lastObjectUrl = null, lastFocus = null;
+
+  function closeModal(){
+    if(!modal) return;
+    modal.remove();
+    modal = null;
+    document.removeEventListener("keydown", onEsc);
+    document.body.classList.remove("locked");
+    if(lastObjectUrl){ try{ URL.revokeObjectURL(lastObjectUrl); }catch(e){} lastObjectUrl = null; }
+    if(lastFocus && lastFocus.focus){ try{ lastFocus.focus(); }catch(e){} }
+  }
+  function onEsc(e){ if(e.key === "Escape" || e.key === "Esc") closeModal(); }
+
+  function openModal(){
+    closeModal();
+    lastFocus = document.activeElement;
+    modal = document.createElement("div");
+    modal.className = "modal";
+    modal.innerHTML = '<div class="sheet" role="dialog" aria-modal="true" aria-label="Картинка для публикации">'
+      + '<h2>Ваше ЭКОБИНГО</h2>'
+      + '<div class="spinner" id="spin">Рисую картинку…</div>'
+      + '</div>';
+    modal.addEventListener("click", function(e){ if(e.target === modal) closeModal(); });
+    document.addEventListener("keydown", onEsc);
+    document.body.classList.add("locked");
+    document.body.appendChild(modal);
+    return modal.querySelector(".sheet");
+  }
+
+  function fail(sheet, text){
+    var spin = sheet.querySelector("#spin");
+    if(spin) spin.remove();
+    var box = document.createElement("div");
+    box.className = "failed";
+    box.textContent = text;
+    sheet.appendChild(box);
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "close";
+    b.textContent = "Закрыть";
+    b.addEventListener("click", closeModal);
+    sheet.appendChild(b);
+    b.focus();
+  }
+
+  var TR = {а:"a",б:"b",в:"v",г:"g",д:"d",е:"e",ё:"e",ж:"zh",з:"z",и:"i",й:"y",к:"k",л:"l",м:"m",
+            н:"n",о:"o",п:"p",р:"r",с:"s",т:"t",у:"u",ф:"f",х:"h",ц:"c",ч:"ch",ш:"sh",щ:"sch",
+            ъ:"",ы:"y",ь:"",э:"e",ю:"yu",я:"ya"};
+  function slug(v){
+    var src = (v || "").trim().toLowerCase(), out = "";
+    for(var i=0;i<src.length;i++){
+      var c = src[i];
+      out += Object.prototype.hasOwnProperty.call(TR, c) ? TR[c] : c;
+    }
+    return out.replace(/[^0-9a-z]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 24);
+  }
+
+  function dataUrlToBlob(d){
+    var comma = d.indexOf(","), bin = atob(d.slice(comma + 1));
+    var arr = new Uint8Array(bin.length);
+    for(var i=0;i<bin.length;i++){ arr[i] = bin.charCodeAt(i); }
+    return new Blob([arr], {type:"image/png"});
+  }
+
+  var ICON_DL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>';
+  var ICON_SHARE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>';
+
+  document.getElementById("brag").addEventListener("click", function(){
+    var sheet = openModal();
+
+    ensureFonts().then(function(){
+      var dataUrl, blob;
+      try{
+        dataUrl = draw().toDataURL("image/png");
+        blob = dataUrlToBlob(dataUrl);
+      }catch(err){
+        fail(sheet, "Не получилось нарисовать картинку в этом браузере. Попробуйте открыть страницу в Chrome или Safari, либо просто сделайте скриншот экрана.");
+        return;
+      }
+
+      var spin = sheet.querySelector("#spin");
+      if(spin) spin.remove();
+
+      var img = document.createElement("img");
+      img.className = "shot";
+      img.alt = "Карточка ЭКОБИНГО";
+      img.src = dataUrl;
+      sheet.appendChild(img);
+
+      var nick = slug(state.name);
+      var fname = "ekobingo" + (nick ? "-" + nick : "") + ".png";
+
+      var file = null, canShare = false;
+      try{
+        file = new File([blob], fname, {type:"image/png"});
+        canShare = !!(navigator.share && navigator.canShare && navigator.canShare({files:[file]}));
+      }catch(e){ canShare = false; }
+
+      var acts = document.createElement("div");
+      acts.className = "acts";
+      var firstBtn = null;
+
+      if(canShare){
+        var bShare = document.createElement("button");
+        bShare.type = "button";
+        bShare.className = "primary";
+        bShare.innerHTML = ICON_SHARE + '<span>Поделиться</span>';
+        bShare.addEventListener("click", function(){
+          navigator.share({files:[file], title:"ЭКОБИНГО Greenway Global"}).catch(function(){});
+        });
+        acts.appendChild(bShare);
+        firstBtn = bShare;
+      }
+
+      if(!SANDBOXED){
+        var a = document.createElement("a");
+        a.className = canShare ? "" : "primary";
+        try{
+          lastObjectUrl = URL.createObjectURL(blob);
+          a.href = lastObjectUrl;
+        }catch(e){
+          a.href = dataUrl;
+        }
+        a.download = fname;
+        a.rel = "noopener";
+        a.innerHTML = ICON_DL + '<span>Скачать</span>';
+        acts.appendChild(a);
+        if(!firstBtn) firstBtn = a;
+      }
+
+      var tipText = "";
+      if(SANDBOXED){
+        tipText = TOUCH
+          ? "Задержите палец на картинке, затем «Сохранить в фото»."
+          : "Правой кнопкой по картинке, затем «Сохранить изображение как…».";
+      }else if(TOUCH){
+        tipText = "Не сработало? Задержите палец на картинке.";
+      }
+      if(tipText){
+        var tip = document.createElement("div");
+        tip.className = "tip";
+        tip.innerHTML = ICON_DL + '<span></span>';
+        tip.querySelector("span").textContent = tipText;
+        sheet.appendChild(tip);
+      }
+
+      if(acts.childNodes.length) sheet.appendChild(acts);
+
+      var bClose = document.createElement("button");
+      bClose.type = "button";
+      bClose.className = "close";
+      bClose.textContent = "Закрыть";
+      bClose.addEventListener("click", closeModal);
+      sheet.appendChild(bClose);
+      if(!firstBtn) firstBtn = bClose;
+
+      if(firstBtn && firstBtn.focus){ try{ firstBtn.focus({preventScroll:true}); }catch(e){} }
+    }, function(){
+      fail(sheet, "Что-то пошло не так при подготовке картинки. Обновите страницу и попробуйте ещё раз.");
+    });
+  });
+})();
+</script>
+</body>
+</html>
